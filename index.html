@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Scanner Explorer</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="https://unpkg.com/html5-qrcode"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 id="viewTitle">Ventana Principal</h1>
+            <p class="subtitle">Explorador</p>
+        </div>
+
+        <!-- Vista Principal -->
+        <div id="mainView">
+            <div class="button-container">
+                <button class="btn btn-primary" onclick="startSearch()">Buscar</button>
+                <button class="btn btn-danger" onclick="showAddFolderDialog()">Agregar</button>
+            </div>
+            <div class="qr-grid" id="qrGrid"></div>
+        </div>
+
+        <!-- Vista de Carpeta -->
+        <div id="folderView" class="hidden">
+            <div class="button-container">
+                <button class="btn btn-primary" onclick="startSearch()">Buscar</button>
+                <button class="btn btn-danger" onclick="startScanner()">Agregar</button>
+            </div>
+            <div class="qr-container">
+                <div id="qrDisplay" class="qr-display"></div>
+            </div>
+            <div class="button-container">
+                <button class="btn btn-secondary" onclick="backToMain()">Volver</button>
+            </div>
+        </div>
+
+        <!-- Scanner View -->
+        <div id="scannerView" class="scanner-view hidden">
+            <div class="scanner-header">
+                <h2>Escaneando...</h2>
+            </div>
+            <div id="reader"></div>
+            <div class="button-container">
+                <button class="btn btn-primary" onclick="stopScanner()">Cancelar</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
